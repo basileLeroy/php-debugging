@@ -55,7 +55,7 @@ declare(strict_types=1);
     // Using the comparison operator "<=>" (space-ship) where it will change the statement again when $letter becomes bigger than 'z'.
 
     $arr = [];
-    for ($letter = 'a'; $letter <=> 'z'; $letter++) {
+    for ($letter = 'a'; $letter <=> 'aa'; $letter++) {
         array_push($arr, $letter);
     }
 
@@ -74,17 +74,18 @@ declare(strict_types=1);
 
     $arr = [];
 
-
     function combineNames($str1 = "", $str2 = "") {
         $params = [$str1, $str2];
-        foreach($params as $param) {
+        foreach ($params as $param) {
             if ($param == "") {
                 $param = randomHeroName();
             }
+            
         }
-        echo implode(" - ", $params);
+        var_dump($params[0], $params[1]);
+        return implode(" - ", $params);
+        
     }
-
 
     function randomGenerate($arr, $amount) {
         for ($i = $amount; $i > 0; $i--) {
@@ -96,12 +97,15 @@ declare(strict_types=1);
 
     function randomHeroName()
     {
-        $hero_firstnames = ["captain", "doctor", "iron", "Hank", "ant", "Wasp", "the", "Hawk", "Spider", "Black", "Carol"];
-        $hero_lastnames = ["America", "Strange", "man", "Pym", "girl", "hulk", "eye", "widow", "panther", "daredevil", "marvel"];
-        $heroes = [$hero_firstnames, $hero_lastnames];
-        $randname = $heroes[rand(0,count($heroes))][rand(0, 10)];
+        // $hero_firstnames = ["captain", "doctor", "iron", "Hank", "ant", "Wasp", "the", "Hawk", "Spider", "Black", "Carol"];
+        // $hero_lastnames = ["America", "Strange", "man", "Pym", "girl", "hulk", "eye", "widow", "panther", "daredevil", "marvel"];
+        // $heroes = [$hero_firstnames, $hero_lastnames];
+        // $randname = $heroes[rand(0,count($heroes))][rand(0, 10)];
 
-        echo $randname;
+        // return $randname;
+        $namez = ["Basile", "nope"];
+        return $namez;
     }
 
-    echo "Here is the name: " . combineNames();
+    echo "Here is the name: ", combineNames();
+    
