@@ -39,8 +39,26 @@ declare(strict_types=1);
     // The print_r($week) should give:  Array ( [0] => mon [1] => tues [2] => wednes [3] => thurs [4] => fri [5] => satur [6] => sun )
     // Look up whats going wrong with this code, and then fix it, with ONE CHARACTER!
 
-    foreach($week as $day) {
+    // When trying to change something directly in the array, you have to use a "&" before $day.
+
+    foreach ($week as &$day) {
         $day = substr($day, 0, -3);
     }
 
     print_r($week);
+
+    new_exercise(5);
+    // === Exercise 5 ===
+    // The array should be printing every letter of the alphabet (a-z) but instead it does that + aa-yz
+    // Fix the code so the for loop only pushes a-z in the array
+
+    // Using the comparison operator "<=>" (space-ship) where it will change the statement again when $letter becomes bigger than 'z'.
+
+    $arr = [];
+    for ($letter = 'a'; $letter <=> 'z'; $letter++) {
+        array_push($arr, $letter);
+    }
+
+    print_r($arr); // Array ([0] => a, [1] => b, [2] => c, ...) a-z alphabetical array
+
+    
